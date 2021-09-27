@@ -68,7 +68,7 @@ WHERE list_price BETWEEN 500 AND 2000
 ORDER BY date_added DESC;
 
 /*
-4. --------CHECK THIS-----
+4.
 Write a SELECT statement that returns these column names and data FROM the Products table:
 product_name The product_name column
 list_price The list_price column
@@ -80,15 +80,12 @@ Sort the result set by the discount_price column in DESCending sequence.
 Use the LIMIT clause so the result set contains only the first 5 rows.
 */
 
--- USE SUB QUERY!
-
 SELECT list_price,
 discount_percent,
-round(((list_price*discount_percent)/100),2) AS discount_amount
-/*round((list_price-discount_amount),2) AS discount_price  <----- getting an error here  -> need to use sub query or repeat formula again*/
+round(((list_price*discount_percent)/100),2) AS discount_amount,
+round(list_price*(1-discount_percent),2) AS discount_price 
 FROM products
-/* need to change the ORDER BY -> ORDER BY discount price */ 
-ORDER BY discount_amount DESC
+ORDER BY discount_price DESC
 LIMIT 5;
 
 -- another attempt
@@ -170,6 +167,6 @@ total The price plus the tax
 To calculate the fourth column, add the expressions you used for the first and third columns.
 */
 
-SELECT @SomeVar = 1234, @AnotherVar = 'Foo';
-SELECT @price = 200, @tax = 0.07;
-select @msg = 'msg', @data = 'data';
+SELECT 100 AS price, .07 AS tax_rate,  
+100 * .07 AS tax_amount, 
+(SELECT price) + (SELECT tax_amount) AS total;
