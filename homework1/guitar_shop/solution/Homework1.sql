@@ -158,7 +158,6 @@ This displays a number for the day, an abbreviation for the month, and a four-di
 SELECT now() AS today_unformatted , 
 DATE_FORMAT(now(), '%e-%b-%Y') AS 'DD-Mon-YYYY';
 
-
 /*
 8.
 Write a SELECT statement without a FROM clause that creates a row with these columns:
