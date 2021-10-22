@@ -1,0 +1,115 @@
+---
+title: "Review of Data Management"
+author: "GAO Yuan"
+date: "2021-10-22"
+summary: "AM05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Session 1
+
+## Session 2
+
+## Session 3
+
+
+
+## Session 4
+
+### 1. Operational vs Informational Systems (OLAP)
+
+OS 3-tier Architecture
+- Presentation Tier / User Interfaces
+- Logic Tier / Business Logic
+- Data Tier
+
+Information Gap: OS aims real time not analytics
+- Normalized relational databses are not for analytics
+
+Aims of Informational Systems
+
+*OLAP*: create all aggregations you might need at night. Clicing, dicing, pivoting and drill-down
+
+### 2. Data Warehousing and ETL
+
+All Sources (Systems) -> Data Staging Area (Operational Data Store) -> Data Warehouse
+
+Types of Data Warehouse:
+- With Independent Data Marts
+- With Enterprise Data Warehouse and Dependent Data Marts
+
+Operational transactions are also loaded into DW.
+
+Dimensional Model:
+- Variations: Star Schema, Snowflake Schema, Constellation Schema. (Duration of db, Surrogate keys, Conformed dimensions)
+- Fact Table
+- Dimension table(1:n)
+- Denormalize to maximize performance. Bad for OLTP.
+
+*Grain*: the finest level of detail in a fact table
+- Transactional grain
+- Aggregated grain
+
+*ETL*
+- challenges
+- requirements
+- Procedures:
+  - Capture/Extract
+  - Scrub/Cleanse
+  - Transform
+  - Load and Index
+
+### 3. Business Intelligence, and Visualization
+
+### 4. Text Parsing with RE
+
+[Cheat Sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/) by Dave Child 
+Online test:
+[Regex101](https://regex101.com/)
+[regexr](https://regexr.com/)
+
+### 5. MySQL functions
+
+## Session 5 DB Connections and Big Data
+
+### 1. DB Connections and Semi-Structured Data
+
+*Open Database Connectivity (ODBC)*: a standard application programming interface (API) for accessing DBMSs
+- Server Side: All kinds of Data Sources -> ODBC Drivers
+- Through Internet or other network
+- Client Side: ODBC API -> ODBC Compliant App
+
+*Java Database Connectivity (JDBC)* is another
+- There is JDBC-to-ODBC bridge.
+- Also python package `jaydebeapi` and R library `RJDBC`
+
+*semi-structured data*: JSON and XML are common ways
+- XBRL is an XML-based standard for financial reports
+
+### 2. Business Analytics and Big Data
+
+Volume, Velocity and Variety of Big Data
+
+And other features: generate automatically, novel sources, non-friendly, much of it worthless
+
+Bigdata Lake
+
+### 3. Techinical Challenges of Big Data
+
+Distributed systems
+
+### 4. Hadoop and other technologies
+
+Hadoop
+
+MapReduce
+
+Hive
+
+Spark
+
+NoSQL (Not Only SQL)
